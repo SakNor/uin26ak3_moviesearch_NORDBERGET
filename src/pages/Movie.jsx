@@ -1,7 +1,16 @@
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 
-export default function (){
+export default function (){ 
     const {movie} = useParams()
-    return <h1>{movie}</h1>
+    const {state} = useLocation()
+
+    return (
+    <main>
+    <h1>{movie}</h1> 
+    <img src={state.poster} alt={movie} />
+    <h3>Utgivelsesår: {state.year}</h3> 
+    </main>
+    )
 }
+//Tatt fra Rick And Morty Cheat Sheet
 
